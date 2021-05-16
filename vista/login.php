@@ -36,9 +36,10 @@
                   <input name="password" type="password" id="inputPassword" class="form-control" placeholder="Password" required>
                   <label for="inputPassword">Password</label>
                 </div>
-                <div class="alert alert-danger" role="alert">
-                  <?= $error?>
-                </div>
+                <?php if($error){
+                  echo "<div class='alert alert-danger' role='alert'>".$error.'</div>';
+                }
+                ?>
                 <button class="btn btn-lg btn-primary btn-block btn-login text-uppercase font-weight-bold mb-2" type="submit" name="enviar">Entrar</button>
                 <div class="text-center">
                   <a href="registro.php">Soy Nuevo</a></div>

@@ -7,18 +7,15 @@ $password = md5($password);
 
 if (isset($_POST['enviar'])) {
     if (empty($email) || empty($password) || empty($name)) {
-      
+        
         header("Location: ../vista/registro.php?error=Revisa%20los%20datos%20introducidos");
     }else {
         // Comprobamos las credenciales con la base de datos
-        if (DB::comprobarUsuario($email,$password)) {
-         
+        if ((DB::comprobarUsuario($email,$password))==true) {
             header("Location: ../vista/registro.php?error=El%20Usuario%20ya%20existe");
-        }
-        else {
-            echo "nuevo Usuario";
+        }else {
            DB::nuevoUsuario($name,$email,$password);
-            header("Location: ../vista/login.php");
+           header("Location: ../vista/login.php?");
         }
     }
 }
