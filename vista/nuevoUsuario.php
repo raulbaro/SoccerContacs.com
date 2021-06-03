@@ -24,7 +24,7 @@
         <?php include('../includes/loading.html') ?>
             <main id="main">
             <?php include('../includes/navbar.php') ?>
-                <form action="../controlador/nuevoUsuario.php" method="POST">
+                <form action="../controlador/nuevoUsuario.php" method="POST" enctype='multipart/form-data'>
                 <div class="capaDatos">
                     <table class="table">
                         <tr>
@@ -41,11 +41,11 @@
                         </tr>
                         <tr>
                             <td><label for="telefono">Telefono:</label></td>
-                            <td><input type="text" name="telefono" id="telefono" placeholder="+34" value="+34" pattern="+34[0-9]{9}"/></td>
+                            <td><input type="text" name="telefono" id="telefono"   pattern="[0-9]{9}"/></td>
                         </tr>
                         <tr>
                             <td><label for="telefono2">Telefono2:</label></td>
-                            <td><input type="text" name="telefono2" id="telefono2" placeholder="+34" value="+34" pattern="+34[0-9]{9}"/></td>
+                            <td><input type="text" name="telefono2" id="telefono2"   pattern="[0-9]{9}"/></td>
                         </tr>
 
                          

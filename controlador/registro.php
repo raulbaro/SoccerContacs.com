@@ -16,10 +16,10 @@ if (isset($_POST['enviar'])) {
         if ((DB::comprobarUsuario($email,$password))==true) {
             header("Location: ../controlador/registro.php?error=El%20Usuario%20ya%20existe");
         }else {
-            var_dump($password);
+            
            DB::nuevoUsuario($name,$email,$password);
            echo '<script type="text/javascript"> document.location ="nuevoUsuario.php?email='.$email.'" </script>';
-           //header("Location: ../controlador/nuevoUsuario.php");
+           header("Location: ../controlador/nuevoUsuario.php");
         }
     }
 }else{

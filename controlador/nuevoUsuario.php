@@ -24,10 +24,10 @@ if($_POST['datos']){
     $tipoDeImagen = pathinfo($fotoU, PATHINFO_EXTENSION); 
     $fotoPerfilTemporal = $_FILES['fotoPerfil']['tmp_name']; 
     $fotoPerfilFinal = addslashes(file_get_contents($fotoPerfilTemporal)); 
-
+   
        
  
-  DB::nuevoDatosUsuario($idU,$nombreU,$apellido1U,$apellido2U,$tlf1U,$tlf2U,$emailU,$direccionU,$estadoCivilU,$numeroHijosU,$estudiosU,$fechaNacimientoU,$descripcionPersonalU,$direccion_idDireccion,$nombreDeportivo);
+  DB::nuevoDatosUsuario($idU,$nombreU,$apellido1U,$apellido2U,$tlf1U,$tlf2U,$emailU,$direccionU,$estadoCivilU,$numeroHijosU,$fotoPerfilFinal,$estudiosU,$fechaNacimientoU,$descripcionPersonalU,$direccion_idDireccion,$nombreDeportivo);
   echo '<script type="text/javascript"> document.location ="login.php" </script>';
 
         

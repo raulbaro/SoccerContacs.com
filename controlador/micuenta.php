@@ -12,6 +12,8 @@ $direccionUsuario = DB::obtenerDireccionUsuario($datosUsuario['direccion_idDirec
 $paisUsuario = DB::obtenerPaisUsuario($direccionUsuario['pais_idPais']);
 
 
+$foto=Perfil::obtenerFotosPerfil($idPerfil);
+
 if($_POST){
 
     $oldPassword = $_POST['oldPassword'];

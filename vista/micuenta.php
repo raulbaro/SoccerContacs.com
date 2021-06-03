@@ -70,8 +70,8 @@
                           <div class="card-body">
                             <div class="d-flex flex-column align-items-center text-center">
                       
-                              <?php // '<img src="data:image/jpeg;base64,'.base64_encode( $datosUsuario['fotoU'] ).' " class="rounded-circle" width="150"/>'; ?>
-                              <img src="https://www.dzoom.org.es/wp-content/uploads/2020/02/portada-foto-perfil-redes-sociales-consejos.jpg" class="rounded-circle" width="150px"/>
+                              <?= '<img src="data:image/jpeg;base64,'.base64_encode( $datosUsuario['fotoU'] ).' " class="rounded-circle" height="150" width="150"/>'; ?>
+                             
                               <div class="mt-3">
                                 <h4>   <?php
                                   $nombre =   $datosUsuario['nombreU']." ".$datosUsuario['apellido1U']." ".$datosUsuario['apellido2U'];
