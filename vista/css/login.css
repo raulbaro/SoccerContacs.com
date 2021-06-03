@@ -91,7 +91,20 @@
 .form-control {
 	border: 4px solid black !important;
 }
-
+a {
+	text-decoration: none;
+}
+.logoGrande{
+    transform: scale(0.7);
+}
+.enlace{
+    color:rgb(38 109 71) !important;
+}
+.password {
+    margin-top: 20px;
+    text-align: center;
+    width: 100%;
+}
 /* Fallback for Edge
   -------------------------------------------------- */
 
@@ -114,4 +127,30 @@
 	.form-label-group input:-ms-input-placeholder {
 		color: #777;
 	}
+}
+.btn-primary {
+	color: #fff !important;
+	background-color: #007d00 !important;
+	border-color: rgb(38 109 71) !important;
+}
+.btn-primary a {
+	color: #fff !important;
+
+}
+.btn-primary:focus {
+	color: #fff !important;
+	box-shadow: 0 0 0 0.25rem rgb(38 109 71 / 50%) !important;
+}
+.inputs {
+    margin:0 auto;
+}
+.form {
+    margin: 0 auto;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+.emailPass{
+    margin: 1rem 0px;
+    width: 100%;
 }

@@ -4,7 +4,6 @@ require_once('../modelo/DB.php');
 session_start();
 
 // Comprobamos si ya se ha enviado el formulario
-
 if (isset($_POST['enviar'])) {
  
     if (empty($_POST['email']) || empty($_POST['password'])) 
@@ -15,18 +14,21 @@ if (isset($_POST['enviar'])) {
            
             $_SESSION['email']=$_POST['email'];
             $_SESSION['sesion']=true;
-            include_once("../controlador/home.php");
+            header("Location: home.php");
                          
         }
         else {
-           header("Location: ../vista/login.php?error=email%20o%20contraseña%20incorrecta");
+           header("Location: ../vista/login.php?error=los%20datos%20son%20incorrectos");
         }
     }
 }else{
-    include_once("../vista/login.php");
+include_once("../vista/login.php");
+
 }
 
 
 
+
 ?>
+ 
  

@@ -1,0 +1,23 @@
+.capaDatos{
+    border: 2px solid #238652;
+    border-radius: 10px;
+    width: 60%;
+    padding: 15px;
+    margin: 50px auto;
+}
+td{
+    padding:0.5rem;
+    width: 50%;
+}
+td >* {
+    width: 100%;
+}
+.btn-primary {
+	color: #fff;
+	background-color: #238652 !important;
+	border-color: #266d47 !important;
+}
+.btn-primary:focus {
+	color: #fff;
+	box-shadow: 0 0 0 0.25rem rgb(38 109 71 / 50%) !important;
+}

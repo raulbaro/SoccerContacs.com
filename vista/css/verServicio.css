@@ -1,0 +1,149 @@
+.flex-container {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    justify-content: start;
+    align-content: stretch;
+    align-items: stretch;
+    margin: 3rem;
+}
+
+.flex-item:nth-child(1) {
+    order: 0;
+    width: 25%;
+    flex: 0 1 auto;
+    align-self: auto;
+}
+
+.flex-item:nth-child(2) {
+    width: 75%;
+    order: 0;
+    flex: 0 1 auto;
+    align-self: auto;
+}
+
+img{
+    width: 300px;
+    height: 250px;
+    border: 2px solid black
+
+}
+.imagen-perfil{
+    max-width: 300px;
+}
+.nombre-usuario{
+    margin: 10px 0px;
+}
+.tabbed{
+    float : left;
+    width: 80%;
+  }
+  
+  .tabbed > input{
+    display : none;
+  }
+  
+  .tabbed > section > h1{
+    float       : left;
+    box-sizing  : border-box;
+    margin      : 0;
+    padding     : 0.5em 0.5em 0;
+    overflow    : hidden;
+    font-size   : 1em;
+    font-weight : normal;
+  }
+  
+  .tabbed > input:first-child + section > h1{
+    padding-left : 1em;
+  }
+  
+  .tabbed > section > h1 > label{
+    display: block;
+    padding: 0.25em 0.75em;
+    border: 1px solid #ddd;
+    border-bottom : none;
+    border-top-left-radius: 4px;
+    border-top-right-radius: 4px;
+    box-shadow: 0 0 0.5em rgba(0,0,0,0.0625);
+    background: #fff;
+    cursor: pointer;
+  }
+  
+  .tabbed > section > div{
+    position: relative;
+    z-index: 1;
+    float: right;
+    box-sizing: border-box;
+    width : 100%;
+    margin: 2.5em 0 0 -100%;
+    padding: 0.5em 0.75em;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    box-shadow: 0 0 0.5em rgba(0,0,0,0.0625);
+    background: #fff;
+  }
+  
+  .tabbed > input:checked + section > h1{
+    position : relative;
+    z-index  : 2;
+  }
+  
+  .tabbed > input:not(:checked) + section > div{
+    display : none;
+  }
+  
+  .grid-container {
+    width: 100%;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    grid-template-rows: 1fr;
+    gap: 0px 0px;
+    grid-template-areas:
+      "foto1 foto2 foto3 foto4";
+  }
+  .foto1 { 
+    width: 100%;
+        grid-area: foto1; 
+}
+  .foto2 { 
+    width: 100%;
+        grid-area: foto2; 
+}
+  .foto3 { 
+    width: 100%;
+        grid-area: foto3; 
+}
+.foto4 { 
+    width: 100%;
+    grid-area: foto4; 
+}
+.item-img {
+    width: 100%;
+
+}
+  
+@media (max-width: 576px) {
+    .flex-container {
+        flex-wrap: wrap;
+    }
+    .flex-item:nth-child(1) {
+        width: 100%;
+    }
+    
+    .flex-item:nth-child(2) {
+        width: 100%;
+    }
+    .tabbed{
+        width: 100%;
+    }
+    .imagen-perfil,.datos,.nombre-usuario{
+        text-align: center;
+        margin: 0 auto;
+    }
+    .grid-container{
+            width: 100%;
+            display: flex;
+            flex-wrap: wrap;
+   
+    
+  }

@@ -6,10 +6,10 @@ class DB {
         echo "<p><span style='color: red; font-size: 18pt;'>$mensaje</span></p>";
     }
     public static function ejecutaConsulta($sql) {
-        //$dsn = "mysql:host=mysql.soccercontacts.com;dbname=scpruebas;charset=utf8"; base de datos server
-        $dsn = "mysql:host=localhost;dbname=scpruebas;charset=utf8";
-        $usuario = 'root';
-        $contrasena = '';
+        $dsn = "mysql:host=mysql.soccercontacts.com;dbname=scpruebas;charset=utf8"; 
+        //$dsn = "mysql:host=localhost;dbname=scpruebas;charset=utf8";
+        $usuario = 'pruebasoccer';
+        $contrasena = 'soccer2020';
         
         try {
             $dwes = new PDO($dsn, $usuario, $contrasena);
@@ -32,6 +32,7 @@ class DB {
         return $resultado;
     }
     public static function verificarUsuario($email, $password) {
+        $password = md5($password);
         $sql = "SELECT * FROM users ";
         $sql .= "WHERE email='$email' ";
         $sql .= "AND password='" . $password . "';";
@@ -56,11 +57,20 @@ class DB {
     // }
     public static function nuevoUsuario($name,$email,$password){
             $date = date('y-m-d h:i:s');
-            $sql = "INSERT INTO users (id,name,email,password,created_at) VALUES (NULL,'$name','$email','$password','$date');";
+            $sql = "INSERT INTO users (id,name,email,password,created_at) VALUES (NULL,'$name','$email','$password','$date')";
+            var_dump($sql);
             $resultado = self::ejecutaConsulta($sql);
            
       
     }
+    public static function nuevoDatosUsuario($idU,$nombreU,$apellido1U,$apellido2U,$tlf1U,$tlf2U,$emailU,$direccionU,$estadoCivilU,$numeroHijosU,$estudiosU,$fechaNacimientoU,$descripcionPersonalU,$direccion_idDireccion,$nombreDeportivo){
+        $sql ="INSERT INTO usuario (idU, nombreU, apellido1U, apellido2U, tlf1U, tlf2U, emailU, direccionU, estadoCivilU, numeroHijosU,estudiosU, fechaNacimientoU, descripcionPersonalU, direccion_idDireccion, nombreDeportivo) VALUES (NULL,'$nombreU','$apellido1U','$apellido2U','$tlf1U','$tlf2U','$emailU','$direccionU','$estadoCivilU',$numeroHijosU,'$estudiosU','$fechaNacimientoU','$descripcionPersonalU','$direccion_idDireccion','$nombreDeportivo')";
+
+        $resultado = self::ejecutaConsulta($sql);
+
+  
+}
+    
     public static function comprobarUsuario($email) {
         $sql = "SELECT * FROM users ";
         $sql .= "WHERE email='$email' ";
@@ -89,8 +99,19 @@ class DB {
 
       
     }
+    static function obtenerDatosUsuarioPorPerfil($idPerfil) {
+        $sql = "SELECT * FROM usuario WHERE idU=(SELECT usuarioPerfilJugador from perfiljugador WHERE idPerfil=$idPerfil)";
+        $resultado = self::ejecutaConsulta($sql);
+        
+        if($resultado) {
+            $usuario = $resultado->fetch(PDO::FETCH_ASSOC);
+           
+            return $usuario;
+        }
 
-    
+      
+    }
+
     
     static function obtenerDireccionUsuario($idDireccion) {
         $sql = "SELECT * FROM direccion WHERE idDireccion='$idDireccion'";
@@ -104,6 +125,7 @@ class DB {
 
       
     }
+
     static function obtenerPaisUsuario($idPais) {
         $sql = "SELECT * FROM pais WHERE idPais='$idPais'";
         $resultado = self::ejecutaConsulta($sql);
@@ -116,6 +138,7 @@ class DB {
 
       
     }
+
     public static function obtenerDatos() {
         $sql = "SELECT * FROM usuario ORDER BY RAND()";
         $resultado = self::ejecutaConsulta($sql);
@@ -130,5 +153,17 @@ class DB {
         }
         return $usuarios;
     }
-  
+
+    static function ordenarPerfiles($campo,$dato) {
+        $sql = "SELECT * FROM perfiljugador WHERE $campo=$dato";
+        $resultado = self::ejecutaConsulta($sql);
+        
+        if($resultado) {
+            $pais = $resultado->fetch(PDO::FETCH_ASSOC);
+           
+            return $pais;
+        }
+
+      
+    }
 }

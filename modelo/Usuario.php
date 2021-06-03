@@ -54,7 +54,7 @@ class Usuario {
       
     }
     public static function obtenerCantidadPerfiles($email){
-        $sql = "SELECT count(idPerfil) FROM perfiljugador WHERE usuarioPerfilJugador=(Select perfiljugador from usuario where emailU='$email')";
+        $sql = "SELECT count(idPerfil) FROM perfiljugador WHERE usuarioPerfilJugador=(Select idU from usuario where emailU='$email')";
         $resultado = DB::ejecutaConsulta($sql);
   
         
@@ -65,7 +65,7 @@ class Usuario {
         }
     }
     public static function obtenerDatosPerfiles($email){
-        $sql = "SELECT * FROM perfiljugador WHERE usuarioPerfilJugador=(Select perfiljugador from usuario where usuario.emailU='$email')";
+        $sql = "SELECT * FROM perfiljugador WHERE usuarioPerfilJugador=(Select idU from usuario where emailU='$email')";
         $resultado = DB::ejecutaConsulta($sql);
         $datosPerfil = [];
 
@@ -77,5 +77,28 @@ class Usuario {
         }
         return $datosPerfil;
     }
+    public static function cambiarPassword($email,$password){
+        $password = md5($password);
+        $sql = "UPDATE users SET password='$password' WHERE email='$email'";
+        $resultado = DB::ejecutaConsulta($sql);
+       
+    }
+    public static function comprobarPassword($email,$password){
+        $password = md5($password);
+        $sql = "SELECT password FROM users WHERE email='$email'";
+        $resultado = DB::ejecutaConsulta($sql);
+        $flag = false;
+        if($resultado) {
+            $password2 = $resultado->fetch(PDO::FETCH_ASSOC);
+            if($password2['password'] == $password){
+                $flag = true;
+            }
+        }
+        var_dump($flag);
+        return $flag;
+
+       
+    }
+    
 
 }

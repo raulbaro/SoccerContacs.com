@@ -9,7 +9,6 @@ $datosPerfil=[];
 
 
 $perfiles=Usuario::obtenerDatosPerfiles($email);
- //var_dump($perfiles[1]);
 
 include_once('../vista/perfiles.php');
 ?>

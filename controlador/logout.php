@@ -4,5 +4,5 @@ session_start();
 
 // Y la eliminamos
 session_unset();
-header("Location: ../vista/login.php");
+header("Location: ../controlador/login.php");
 ?>

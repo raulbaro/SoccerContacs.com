@@ -1,12 +1,36 @@
+html {
+	margin: 0px;
+	height: 100%;
+	width: 100%;
+}
+
+body {
+	margin: 0px;
+	min-height: 100%;
+	width: 100%;
+}
 .navbar-brand {
 	background-image: url("../../assets/img/logo.jpg");
 	background-position: center;
 	background-repeat: no-repeat;
 	background-size: contain;
 	width: 48px;
+
 	height: 48px;
 }
 
 .navbar-nav .nav-item:hover {
 	background-color: rgba(180, 190, 203, 0.4);
+}
+.bg-green {
+	background-color: rgb(38 109 71) !important;
+}
+
+a.dropdown-item:focus {
+	background-color: rgb(38 109 71) !important;
+}
+.nav-link {
+	color: whitesmoke !important;
+	font-weight: bold;
+	text-align: center;
 }
