@@ -70,7 +70,7 @@ class Perfil {
 
     public static function addVideosPerfil($video1,$video2,$idNuevoPerfil){
         $sql = "INSERT INTO videoperfil (idVideo,video1,video2,perfiljugador) VALUES (NULL,'$video1','$video2','$idNuevoPerfil')";
-        var_dump($sql);
+       // var_dump($sql);
         $resultado = DB::ejecutaConsulta($sql);
         var_dump($resultado);
     }

@@ -58,16 +58,16 @@ class DB {
     public static function nuevoUsuario($name,$email,$password){
             $date = date('y-m-d h:i:s');
             $sql = "INSERT INTO users (id,name,email,password,created_at) VALUES (NULL,'$name','$email','$password','$date')";
-            var_dump($sql);
+            //var_dump($sql);
             $resultado = self::ejecutaConsulta($sql);
            
       
     }
-    public static function nuevoDatosUsuario($idU,$nombreU,$apellido1U,$apellido2U,$tlf1U,$tlf2U,$emailU,$direccionU,$estadoCivilU,$numeroHijosU,$estudiosU,$fechaNacimientoU,$descripcionPersonalU,$direccion_idDireccion,$nombreDeportivo){
-        $sql ="INSERT INTO usuario (idU, nombreU, apellido1U, apellido2U, tlf1U, tlf2U, emailU, direccionU, estadoCivilU, numeroHijosU,estudiosU, fechaNacimientoU, descripcionPersonalU, direccion_idDireccion, nombreDeportivo) VALUES (NULL,'$nombreU','$apellido1U','$apellido2U','$tlf1U','$tlf2U','$emailU','$direccionU','$estadoCivilU',$numeroHijosU,'$estudiosU','$fechaNacimientoU','$descripcionPersonalU','$direccion_idDireccion','$nombreDeportivo')";
+    public static function nuevoDatosUsuario($idU,$nombreU,$apellido1U,$apellido2U,$tlf1U,$tlf2U,$emailU,$direccionU,$estadoCivilU,$numeroHijosU,$estudiosU,$fechaNacimientoU,$descripcionPersonalU,$direccion_idDireccion,$nombreDeportivo,$fotoU){
+        $sql ="INSERT INTO usuario (idU, nombreU, apellido1U, apellido2U, tlf1U, tlf2U, emailU, direccionU, estadoCivilU, numeroHijosU,estudiosU, fechaNacimientoU, descripcionPersonalU, direccion_idDireccion, nombreDeportivo,fotoU) VALUES (NULL,'$nombreU','$apellido1U','$apellido2U','$tlf1U','$tlf2U','$emailU','$direccionU','$estadoCivilU',$numeroHijosU,'$estudiosU','$fechaNacimientoU','$descripcionPersonalU','$direccion_idDireccion','$nombreDeportivo','$fotoU')";
 
         $resultado = self::ejecutaConsulta($sql);
-
+        var_dump($resultado);
   
 }
     
